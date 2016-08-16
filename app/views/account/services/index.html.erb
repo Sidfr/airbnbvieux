@@ -1,0 +1,12 @@
+
+
+<% @services.each do |service| %>
+<%= service.description %>
+<%= service.city %>
+<%= link_to "remove", account_service_path(service), method: :delete %>
+<hr>
+<% end %>
+
+
+
+
