@@ -15,7 +15,7 @@ class Account::ServicesController < ApplicationController
     # s = Service.new(services_params)
     # s.user = current_user
     # s.save
-    redirect_to account_services_path
+    redirect_to account_profile_path
   end
 
   def edit
@@ -25,13 +25,13 @@ class Account::ServicesController < ApplicationController
   def update
     @service = Service.find(params[:id])
     @service.update(services_params)
-    redirect_to account_services_path
+    redirect_to account_profile_path
   end
 
   def destroy
     @service = Service.find(params[:id])
     @service.destroy
-    redirect_to account_services_path
+    redirect_to account_profile_path
   end
 
   private

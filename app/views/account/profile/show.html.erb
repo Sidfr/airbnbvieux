@@ -1,7 +1,48 @@
-<%= @profile.last_name %>
-<%= @profile.first_name %>
-<% if @profile.expert %>
-<%= "Vous êtes expert !" %>
-<% end %>
+<div class="profil">
+  <div class="container product">
+    <img src='https://unsplash.it/200/?random' class="avatar-square"/>
+    <div class="product-body">
+      <h2><%= " Bonjour je m'appelle #{@profile.first_name} !" %></h2>
+      <p><%= " Membre depuis le  : #{@profile.created_at} "%>
+        <% if @profile.expert %>
+        <p><%= "Je suis un expert !" %></p>
+        <% else %>
+        <p><%= "Je suis un jeuns" %></p>
+        <% end %>
+        <%=link_to "Edit my profile", edit_account_profile_path%></p>
+      </div>
+      <div class="product-body profil-right-side">
+        <p> "Last review" </p>
+        <p> "super génial" </p>
+        <%=link_to "More reviews", new_account_service_path%></h3>
+      </div>
+    </div>
 
+
+
+    <div class="container padded ">
+      <div class="row">
+        <h3><%= "My services (#{@services.count}) -" %>
+          <%=link_to "Add more services", new_account_service_path%></h3>
+
+          <% @services.each do |service| %>
+          <div class="col-xs-12 col-sm-3">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://unsplash.it/200/?random');">
+              <div class="card-category">
+                <h4><%= "TITRE" %></h4>
+                <%= service.description %>
+                <%= service.city %>
+              </div>
+              <div class="card-description">
+                <%= link_to "Edit", edit_account_service_path(service), class: 'btn btn-warning' %>
+                <%= link_to "Remove", account_service_path(service), method: :delete, class: 'btn btn-success' %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
 

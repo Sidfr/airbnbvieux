@@ -5,11 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
- has_one :profile
- has_many :services
- has_many :sent_reviews, class_name: 'Review', foreign_key: 'sender_id'
- has_many :received_reviews, class_name: 'Review', foreign_key: 'recipient_id'
- has_many :bookings
+  has_one :profile
+  has_many :services
+  has_many :sent_reviews, class_name: 'Review', foreign_key: 'sender_id'
+  has_many :received_reviews, class_name: 'Review', foreign_key: 'recipient_id'
+  has_many :bookings
+  has_many :reviews
 
    def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
@@ -31,5 +32,7 @@ class User < ApplicationRecord
     return user
   end
 
-
+ def to_s
+  email
+ end
 end
