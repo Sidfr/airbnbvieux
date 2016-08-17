@@ -31,5 +31,15 @@ booking2.save
 adrien = User.create!(email:"adrien@gmail.com", password:"123456")
 
 r = Review.new(description: "good", stars: "5", sender:adrien, recipient:toto)
-
 r.save
+
+
+r1 = Review.new(description: "bad", stars: "1", sender:toto, recipient:adrien)
+r1.save
+
+r2 = Review.new(description: "always excellent", stars: "10", sender:adrien, recipient:toto)
+r2.save
+
+puts ("your seed populates your DB")
+
+
