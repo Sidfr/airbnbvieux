@@ -1,2 +1,70 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_url ('background.jpg') %>) ;">
+  <div class="banner-content">
+    <h1>Développez de nouvelles compétences</h1>
+    <p>Découvrez l'apprentissage intergénérationnel</p>
+
+    <form action="" class="search">
+
+      <input type="text" class="search-input" placeholder="Search for a service">
+      <button type="submit" class="search-btn">
+        <i class="fa fa-search"></i>
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<div class="how-it-works text-center">
+  <div class="row">
+    <div class="col-xs-12 col-md-4 padded">
+      <i class="fa fa-search fa-5x" aria-hidden="true"></i>
+      <bold><h4>Cherchez une compétence</h4></bold>
+      <p>Trouvez parmi de nombreuses disciplines</p>
+      <p>celle que vous souhaiteriez développer</p>
+    </div>
+    <div class="col-xs-12 col-md-4 padded">
+      <i class="fa fa-calendar-o fa-5x" aria-hidden="true"></i>
+      <bold><h4>Réservez une date</h4></bold>
+      <p>Trouvez les disponibilités des retraités</p>
+      <p>et réservez votre "rendez-vous"</p>
+    </div>
+    <div class="col-xs-12 col-md-4 padded">
+      <i class="fa fa-check-square fa-5x" aria-hidden="true"></i>
+      <bold><h4>Rencontrez-vous</h4></bold>
+      <p>Bénéficiez de l'expérience des retraités</p>
+      <p>et évaluez leurs prestations</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="last-services text-center padded">
+  <h2>Découvrez les derniers services proposés</h2>
+  <p>_________________________</p>
+  <div class="row">
+  <% Service.all.last(6).each do |service| %>
+    <div class="col-xs-12 col-md-4 padded">
+      <div class="card">
+        <%= service.description %>
+        <%= service.city %>
+        <%= link_to "Voir", service_path(service) %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="thoughts">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+     <div class="thoughts-content">
+     <h3>"AdopteUnVieux révolutionne la manière dont on accède au savoir"</h3>
+      <img src="https://www.carmignac.fr/sites/default/files/styles/page-funds-carrousel/public/empoyee_images/cg_web_leroux_frederic_grande.jpg?itok=wm4jrlOI" class="avatar-large">
+      <h4>Simon Marin</h4>
+      <p>Co-Founder @MaBoite</p>
+    </div>
+  </div>
+</div>
+</div>

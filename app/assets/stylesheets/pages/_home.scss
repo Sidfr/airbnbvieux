@@ -1,4 +1,98 @@
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
+.banner {
+  color: white;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner p {
+  font-size: 20px;
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+
+.search {
+  flex: 0 1 300px;
+  padding: 0 10px;
+  position: relative;
+}
+
+.search-btn {
+  line-height: 40px;
+  color: #E6E6E6;
+  border: none;
+  background: transparent;
+  position: absolute;
+  right: auto;
+  top: -2px;
+  z-index: 1;
+}
+
+.search-input {
+  flex: 0 1 300px;
+  transition: all 0.15s ease;
+  line-height: 40px;
+  font-weight: lighter;
+  color: #666666;
+  border: 1px solid #E6E6E6;
+  border-radius: 5px;
+  padding: 0 10px;
+  font-size: 14px;
+  outline: none;
+}
+.search-input:focus  {
+  border: 1px solid #CCCCCC;
+}
+
+
+.how-it-works {
+  height: 50vh;
+  background-color: #EEF2F5;
+}
+
+.how-it-works h2 {
+  margin: 0;
+}
+
+
+.last-services {
+  height: auto;
+}
+
+
+.card {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  color: white;
+  position: relative;
+  background-color: #FDF6E3;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+
+.thoughts {
+  color: white;
+  height: auto;
+  background-color: #434E5B;
+  padding-bottom: 40px;
+}
+
+.thoughts-content {
+  padding-top: 40px;
+}
+
+.thoughts h3 {
+  padding-bottom: 20px;
+  font-size: 25px;
+}
