@@ -1,12 +1,20 @@
+<div class="container text-center padded">
+  <div class="row">
+    <% @services.each do |service| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card ">
+      <div class="card-description">
+        <h2><%= service.city %></h2>
+        <p><%= service.description %></p>
+        <%= link_to "edit", edit_account_service_path(service), class: 'btn btn-success' %>
+        <%= link_to "remove", account_service_path(service), method: :delete, class: 'btn btn-success' %>
+      </div>
+    </div>
 
-
-<% @services.each do |service| %>
-<%= service.description %>
-<%= service.city %>
-<%= link_to "remove", account_service_path(service), method: :delete %>
-<hr>
-<% end %>
-
-
-
-
+    </div>
+    <% end %>
+  </div>
+  <div class="button-remove-service padded">
+    <%= link_to "add a new service", new_account_service_path, class: 'btn btn-info'%>
+  </div>
+</div>
