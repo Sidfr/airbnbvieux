@@ -25,7 +25,7 @@ class Account::ServicesController < ApplicationController
   def update
     @service = Service.find(params[:id])
     @service.update(services_params)
-    redirect_to account_services_path
+    redirect_to account_profile_path
   end
 
   def destroy
