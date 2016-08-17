@@ -9,4 +9,9 @@ class User < ApplicationRecord
  has_many :sent_reviews, class_name: 'Review', foreign_key: 'sender_id'
  has_many :received_reviews, class_name: 'Review', foreign_key: 'recipient_id'
  has_many :bookings
+ has_many :reviews
+
+ def to_s
+  email
+ end
 end
