@@ -48,3 +48,12 @@
     <% end %>
   </div>
 
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var coord = <%= raw @profile_coordinates.to_json %>;
+      alert('Profile coordinates are ' + coord.lat + ', ' + coord.lng);
+    });
+  <% end %>
+<% end %>

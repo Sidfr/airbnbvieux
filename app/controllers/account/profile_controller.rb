@@ -9,6 +9,9 @@ class Account::ProfileController < ApplicationController
       redirect_to new_account_profile_path
     end
     @profile = current_user.profile
+    if @profile
+      @profile_coordinates = { lat: @profile.latitude, lng: @profile.longitude }
+    end
   end
 
   def new

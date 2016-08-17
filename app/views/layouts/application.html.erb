@@ -16,7 +16,8 @@
         <%= yield %>
       </div>
     </div>
-    <%= javascript_include_tag 'application' %>
     <%= render 'shared/footer' %>
+    <%= javascript_include_tag 'application' %>
+    <%= yield(:after_js) %>
   </body>
 </html>
