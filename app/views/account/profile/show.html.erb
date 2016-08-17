@@ -18,8 +18,7 @@
       </div>
     </div>
 
-
-
+    <% if current_user.profile.expert %>
     <div class="container padded ">
       <div class="row">
         <h3><%= "My services (#{@services.count}) -" %>
@@ -44,5 +43,8 @@
 
       </div>
     </div>
+    <% else %>
+    <p> You have no bookings </p>
+    <% end %>
   </div>
 
