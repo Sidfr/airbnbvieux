@@ -1,1 +1,17 @@
-// Your footer style
+.footer {
+  height: auto;
+  background-color: black;
+  color: white;
+}
+
+.container-footer-li {
+  padding-top: 20px;
+}
+
+.copyright {
+  padding-bottom: 10px;
+}
+
+.footer li:hover {
+  color: yellow;
+}
