@@ -12,7 +12,7 @@
         <%=link_to "Edit my profile", edit_account_profile_path%></p>
       </div>
       <div class="product-body profil-right-side">
-      <% if @profile.expert && (@reviews.count =! 0)%>
+      <% if @profile.expert && (@reviews.count != 0)%>
         <h3><%="The latest review from : #{@reviews.last.sender.profile.first_name}"%></h3>
         <p><%= "Comment : '#{@reviews.last.description}'" %></p>
         <p><%= "Note : #{@reviews.last.stars}/5" %></p>
