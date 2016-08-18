@@ -1,19 +1,21 @@
-<div class="container text-center padded">
-  <div class="row">
-    <% @reviews.each do |review| %>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card ">
-      <div class="card-description">
-        <h2><%= review.description %></h2>
-        <p><%= review.stars %></p>
-        <p><%= review.sender.email %></p>
-      </div>
-    </div>
+<div class="profil">
+  <br>
+  <h2><%= "#{@profile.first_name}, here your reviews !" %></h2>
+  <% @reviews.each do |review| %>
+  <div class="container product ">
+    <img src='https://unsplash.it/200/?random' class="avatar-large-pp"/>
+    <div class="product-body">
+      <p><%= " Review from : #{review.sender.profile.first_name}" %></p>
 
+      <p><%= "Comment : '#{review.description}'" %></p>
+      <p><%= " Note : #{review.stars}""/5" %></p>
     </div>
-    <% end %>
+    <div class="product-body profil-right-side">
+      <p><%= " Date review : #{review.updated_at.strftime('%d/%m/%Y')}" %></p>
+    </div>
+    <hr>
   </div>
-  <div class="button-remove-service padded">
-    <%= link_to "add a new review", new_account_review_path, class: 'btn btn-info'%>
-  </div>
+  <% end %>
 </div>
+
+

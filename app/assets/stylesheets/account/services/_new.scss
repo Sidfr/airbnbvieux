@@ -19,6 +19,12 @@
   font-size: 10px;
   text-transform: uppercase;
 }
+
+.card-category p {
+font-size: 10px;
+
+}
+
 .card-description {
   position: absolute;
   bottom: 10px;
@@ -55,7 +61,7 @@
 .product {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding-bottom: 15px;
   border-radius: 3px;
   transition: all 0.15s ease;
 }
@@ -76,5 +82,13 @@ background-color: #e6e2eb;
 }
 
 .profil-right-side {
-  padding-left: 15px;
+  padding-left: 100px;
+}
+
+.profil h2 {
+text-align: center;
+}
+.product-body {
+width: 500px;
+
 }
