@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   def home
   end
 
+
   private
 
   def set_service

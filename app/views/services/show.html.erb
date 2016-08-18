@@ -6,7 +6,9 @@
     <h2><%= @service.title %>TITLE OF THE SERVICE A RETIRER</h2>
    </div>
     <hr>
+
    <div class="service-description-card">
+
     <%= @service.description %>
     <p><%= @service.price %> € </p>
     </div>
@@ -46,7 +48,9 @@
    <% @service.user.received_reviews.each do |review| %>
     <%= average.reduce(:+).to_f / sum %>
    <% end %>
-
+   <div class="button-booking padded">
+   <%= link_to "Book this service", account_profile_path, class: "btn btn-primary" %>
+   </div>
   </div>
 </div>
 

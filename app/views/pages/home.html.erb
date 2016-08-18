@@ -3,12 +3,15 @@
     <h1>Développez de nouvelles compétences</h1>
     <p>Découvrez l'apprentissage intergénérationnel</p>
 
-    <form action="" class="search">
-      <input type="text" class="search-input" placeholder="Search for a service">
-      <button type="submit" class="search-btn">
+    <div class="search">
+    <%= form_tag services_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search], :placeholder => "Search for a City", class: "search-input" %>
+       <button type="submit" class="search-btn">
         <i class="fa fa-search"></i>
-      </button>
-    </form>
+       </button>
+    <% end %>
+    </div>
+
 
   </div>
 </div>
