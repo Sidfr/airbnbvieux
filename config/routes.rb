@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users,
      controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  root to: 'pages#home'
+      root to: 'pages#home'
 
-resources :services, only: [:show, :index]
+  resources :services, only: [:show, :index]
 
   namespace :account do
     resource :profile, controller: 'profile'
