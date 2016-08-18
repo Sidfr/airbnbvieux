@@ -3,6 +3,10 @@ class Account::ProfileController < ApplicationController
   before_action :set_services, only:[:index, :update, :show]
   before_action :set_profile
 
+  def index
+    @profiles = Profile.where.not(latitude: nil, longitude: nil)
+
+  end
 
   def show
     if !current_user.profile
@@ -11,7 +15,12 @@ class Account::ProfileController < ApplicationController
     @profile = current_user.profile
     if @profile
       @profile_coordinates = { lat: @profile.latitude, lng: @profile.longitude }
-    end
+  end
+
+
+
+
+
   end
 
   def new
