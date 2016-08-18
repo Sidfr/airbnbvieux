@@ -1,4 +1,5 @@
 class Profile < ApplicationRecord
+  has_many :services, through: :users
   belongs_to :user
   has_many :reviews, through: :users
   validates :first_name, presence: true

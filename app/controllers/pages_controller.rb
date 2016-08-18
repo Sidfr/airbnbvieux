@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
+  skip_before_action :authenticate_user!, only: [:home, :show]
   layout 'home'
 
   def home
@@ -11,4 +11,12 @@ class PagesController < ApplicationController
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
   end
+
+  private
+
+  def set_service
+    @service = Service.find(params[:id])
+  end
+
+
 end

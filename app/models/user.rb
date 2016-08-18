@@ -10,7 +10,6 @@ class User < ApplicationRecord
   has_many :sent_reviews, class_name: 'Review', foreign_key: 'sender_id'
   has_many :received_reviews, class_name: 'Review', foreign_key: 'recipient_id'
   has_many :bookings
-  has_many :reviews
 
    def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
