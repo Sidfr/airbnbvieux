@@ -1,0 +1,52 @@
+
+
+<div class="container text-center">
+  <div class="row">
+   <div class="service-description-card-title">
+    <h2><%= @service.title %>TITLE OF THE SERVICE A RETIRER</h2>
+   </div>
+    <hr>
+   <div class="service-description-card">
+    <%= @service.description %>
+    <p><%= @service.price %> € </p>
+    </div>
+    <h4> En savoir plus sur l'expert : </h4>
+
+    <h5> Prénom :<%= @service.user.profile.first_name %></h5>
+    <h5> Nom :<%= @service.user.profile.last_name %></h5>
+
+    <div class="card-location-service-provider padded">
+   <p> Localisation :<%= @service.city %>
+    <%= @service.user.profile.address %></p>
+    <div class="card-geocoder-map">
+       <img src="http://placehold.it/500x300">
+    </div>
+    </div>
+
+    <p> Contacte le/la à l'adresse suivante :
+    <%= @service.user.email %> </p>
+
+    <h4><strong>Voici ses disponibilités : </strong></h4>
+
+    <p><% @service.availabilities.each do |availability|%>
+    Du <%= availability.startdate.strftime("%d/%m/%Y (%H:%M)") %> jusqu'au <%= availability.enddate.strftime("%d/%m/%Y (%H:%M)") %><p>
+     <br>
+     <% end %>
+
+
+   <h4><strong>Voici la moyenne de ses reviews : </strong></h4>
+  <% sum = 0 %>
+  <% average = [] %>
+
+   <% @service.user.received_reviews.each do |review| %>
+    <% sum += 1 %>
+    <% average << review.stars %>
+   <% end %>
+
+   <% @service.user.received_reviews.each do |review| %>
+    <%= average.reduce(:+).to_f / sum %>
+   <% end %>
+
+  </div>
+</div>
+

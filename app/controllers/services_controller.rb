@@ -1,9 +1,16 @@
-class PagesController < ApplicationController
+class ServicesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :show]
-  layout 'home'
+  before_action :set_service
 
   def home
   end
+
+  def show
+
+  end
+
+
+
 
   private
 
