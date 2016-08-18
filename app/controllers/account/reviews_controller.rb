@@ -1,6 +1,8 @@
 class Account::ReviewsController < ApplicationController
 
   before_action :set_reviews
+    before_action :set_profile
+
   def index
 
   end
@@ -29,5 +31,14 @@ class Account::ReviewsController < ApplicationController
   def reviews_params
     params.require(:review).permit(:description, :stars, :recipient_id)
   end
+
+   def set_profile
+    @profile = current_user.profile
+  end
+
+  def profile_params
+    params.require(:profile).permit(:last_name, :first_name, :expert)
+  end
+
 
 end

@@ -45,7 +45,7 @@ class Account::ServicesController < ApplicationController
   end
 
   def services_params
-    params.require(:service).permit(:description, :city)
+    params.require(:service).permit(:description, :city, :price, :title)
   end
 
 end
