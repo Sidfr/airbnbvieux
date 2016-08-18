@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
 resources :services, only: [:show, :index]
+
   namespace :account do
     resource :profile, controller: 'profile'
     resources :reviews, only: [:index, :new, :create]
