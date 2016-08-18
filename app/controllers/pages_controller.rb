@@ -3,5 +3,12 @@ class PagesController < ApplicationController
   layout 'home'
 
   def home
+    @services = Service.all
+
+    @hash = Gmaps4rails.build_markers(@services) do |service, marker|
+      marker.lat service.user.profile.latitude
+      marker.lng service.user.profile.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 end

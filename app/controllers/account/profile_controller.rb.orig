@@ -4,11 +4,14 @@ class Account::ProfileController < ApplicationController
   before_action :set_reviews
   before_action :set_profile
 
+<<<<<<< HEAD
   def index
     @profiles = Profile.where.not(latitude: nil, longitude: nil)
 
   end
 
+=======
+>>>>>>> fd352b63a31d3a338255a6ceedcf32000490ed76
   def show
     if !current_user.profile
       redirect_to new_account_profile_path
