@@ -17,10 +17,6 @@ class Account::ProfileController < ApplicationController
       @profile_coordinates = { lat: @profile.latitude, lng: @profile.longitude }
   end
 
-
-
-
-
   end
 
   def new
@@ -43,7 +39,7 @@ class Account::ProfileController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:last_name, :first_name, :expert)
+    params.require(:profile).permit(:last_name, :first_name, :expert, :address, :photo)
   end
 
   def set_services
