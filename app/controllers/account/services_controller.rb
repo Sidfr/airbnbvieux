@@ -11,7 +11,7 @@ class Account::ServicesController < ApplicationController
   end
 
   def create
-    @service = current_user.services.create(services_params)
+    @service = current_user.services.create!(services_params)
     # s = Service.new(services_params)
     # s.user = current_user
     # s.save
