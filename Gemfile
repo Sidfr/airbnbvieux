@@ -23,6 +23,7 @@ gem "geocoder"
 
 gem "coffee-rails"
 gem "gmaps4rails"
+gem 'figaro'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
