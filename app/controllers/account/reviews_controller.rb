@@ -21,7 +21,7 @@ class Account::ReviewsController < ApplicationController
     r.description = reviews_params["description"]
     r.stars = reviews_params["stars"]
     r.save
-    redirect_to account_reviews_path
+    redirect_to account_profile_path
   end
 
   private
