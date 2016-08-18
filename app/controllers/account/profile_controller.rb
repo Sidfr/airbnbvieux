@@ -1,8 +1,8 @@
 class Account::ProfileController < ApplicationController
 
   before_action :set_services, only:[:index, :update, :show]
+  before_action :set_reviews
   before_action :set_profile
-
 
   def show
     if !current_user.profile
@@ -43,6 +43,14 @@ class Account::ProfileController < ApplicationController
   end
 
   def services_params
-    params.require(:service).permit(:description, :city)
+    params.require(:service).permit(:description, :city, :price, :title)
+  end
+
+  def set_reviews
+    @reviews = current_user.received_reviews
+  end
+
+  def reviews_params
+    params.require(:review).permit(:description, :stars, :recipient_id)
   end
 end
