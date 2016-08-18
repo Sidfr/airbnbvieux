@@ -10,6 +10,7 @@ resources :services, only: [:show, :index]
     resource :profile, controller: 'profile'
     resources :reviews, only: [:index, :new, :create]
     resources :services
+    resources :bookings
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

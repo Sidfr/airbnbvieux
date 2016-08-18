@@ -10,6 +10,7 @@ class Account::ProfileController < ApplicationController
   end
 
   def show
+    @bookings = Booking.where(user_id: current_user.id)
     if !current_user.profile
       redirect_to new_account_profile_path
     end
