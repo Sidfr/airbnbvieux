@@ -4,6 +4,7 @@
   <%= simple_form_for @profile, url: account_profile_path do |f| %>
     <%= f.input :last_name %>
     <%= f.input :first_name %>
+    <%= f.input :address %>
     <%= f.input :expert , as: :boolean %>
 
     <p>
