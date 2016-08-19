@@ -1,9 +1,15 @@
 class Account::BookingsController < ApplicationController
 
-  before_action :set_services
+  before_action :set_services, except: [:index]
 
   def index
-    @services = set_services
+    @services = Service.search(params[:search])
+
+    @hash = Gmaps4rails.build_markers(@services) do |service, marker|
+      marker.lat service.user.profile.latitude
+      marker.lng service.user.profile.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
 
   end
 

@@ -10,7 +10,8 @@ class ServicesController < ApplicationController
   end
 
   def index
-    @results = Service.search(params[:search])
+    @services = Service.search(params[:search])
+    redirect_to account_bookings_path
   end
 
 
