@@ -11,35 +11,4 @@ Booking.destroy_all
 Availability.destroy_all
 Service.destroy_all
 User.destroy_all
-
-toto = User.create!(email:"toto@gmail.com", password:"123456")
-
-service1 = toto.services.create!(description:"english", city:"Lille")
-service2 = toto.services.create!(description:"maths", city:"Lille")
-
-service1.availabilities.create!(startdate:Date.today + 2, enddate:Date.today + 3)
-service1.availabilities.create!(startdate:Date.today - 1, enddate:Date.today)
-
-service2.availabilities.create!(startdate:Date.today - 1, enddate:Date.today)
-
-booking1 = Booking.new(user:toto, service:service1, startdate:Date.today + 2.5, enddate:Date.today + 2.8)
-booking2 = Booking.new(user:toto, service:service2, startdate:Date.today - 0.5, enddate:Date.today - 0.1)
-
-booking1.save
-booking2.save
-
-adrien = User.create!(email:"adrien@gmail.com", password:"123456")
-
-r = Review.new(description: "good", stars: "5", sender:adrien, recipient:toto)
-r.save
-
-
-r1 = Review.new(description: "bad", stars: "1", sender:toto, recipient:adrien)
-r1.save
-
-r2 = Review.new(description: "always excellent", stars: "10", sender:adrien, recipient:toto)
-r2.save
-
-puts ("your seed populates your DB")
-
-
+Profile.destroy_all
