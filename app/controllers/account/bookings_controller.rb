@@ -15,6 +15,7 @@ class Account::BookingsController < ApplicationController
     b = Booking.new
     b.user = current_user
     b.service_id = params[:service_id]
+    b.validated_booking = true
     # s = Service.new(services_params)
     # s.user = current_user
     b.save
