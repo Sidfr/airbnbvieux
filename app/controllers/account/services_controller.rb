@@ -3,7 +3,7 @@ class Account::ServicesController < ApplicationController
   before_action :set_services, only:[:index, :update]
 
   def index
-
+    @results = Service.all.search(params[:search])
   end
 
   def new
@@ -47,5 +47,11 @@ class Account::ServicesController < ApplicationController
   def services_params
     params.require(:service).permit(:description, :city, :price, :title)
   end
+
+  def search_params
+    params.require(:service).permit(:search)
+  end
+
+
 
 end
