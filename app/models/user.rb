@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :received_reviews, class_name: 'Review', foreign_key: 'recipient_id'
   has_many :bookings
 
+  after_create :send_welcome_email
+
    def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
@@ -34,4 +36,13 @@ class User < ApplicationRecord
  def to_s
   email
  end
+
+
+ private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
+
+
 end

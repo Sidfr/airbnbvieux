@@ -2,9 +2,6 @@ class Account::ServicesController < ApplicationController
 
   before_action :set_services, only:[:index, :update]
 
-  def index
-
-  end
 
   def new
     @service = Service.new
@@ -12,10 +9,15 @@ class Account::ServicesController < ApplicationController
 
   def create
     @service = current_user.services.create!(services_params)
+      if @service.save
+        ServiceMailer.creation_confirmation(@service).deliver_now
+        redirect_to account_profile_path
+      else
+        render :new
     # s = Service.new(services_params)
     # s.user = current_user
     # s.save
-    redirect_to account_profile_path
+       end
   end
 
   def edit
@@ -34,6 +36,11 @@ class Account::ServicesController < ApplicationController
     redirect_to account_profile_path
   end
 
+
+  def index
+    @results = Service.all.search(params[:search])
+  end
+
   private
 
   def set_services
@@ -46,6 +53,10 @@ class Account::ServicesController < ApplicationController
 
   def services_params
     params.require(:service).permit(:description, :city, :price, :title)
+  end
+
+   def search_params
+    params.require(:service).permit(:search)
   end
 
 end

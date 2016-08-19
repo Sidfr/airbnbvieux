@@ -4,7 +4,7 @@
     <p>Découvrez l'apprentissage intergénérationnel</p>
 
     <div class="search">
-    <%= form_tag services_path, :method => 'get' do %>
+    <%= form_tag account_services_path, :method => 'get' do %>
     <%= text_field_tag :search, params[:search], :placeholder => "Search for a City", class: "search-input" %>
        <button type="submit" class="search-btn">
         <i class="fa fa-search"></i>
