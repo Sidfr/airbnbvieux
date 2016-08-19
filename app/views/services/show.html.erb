@@ -35,18 +35,6 @@
      <% end %>
 
 
-   <h4><strong>Voici la moyenne de ses reviews : </strong></h4>
-  <% sum = 0 %>
-  <% average = [] %>
-
-   <% @service.user.received_reviews.each do |review| %>
-    <% sum += 1 %>
-    <% average << review.stars %>
-   <% end %>
-
-   <% @service.user.received_reviews.each do |review| %>
-    <%= average.reduce(:+).to_f / sum %>
-   <% end %>
    <div class="button-booking padded">
     <%= link_to "book it", account_bookings_path(service_id: @service.id), class: 'btn btn-success', method: :post %>
    </div>
