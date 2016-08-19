@@ -3,6 +3,8 @@ class Account::ProfileController < ApplicationController
   before_action :set_services, only:[:index, :update, :show]
   before_action :set_reviews
   before_action :set_profile
+    before_action :set_service
+
 
   def index
     @profiles = Profile.where.not(latitude: nil, longitude: nil)
