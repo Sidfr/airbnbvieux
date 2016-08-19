@@ -1,20 +1,27 @@
 <div class="container text-center padded">
   <div class="row">
-    <% @services.each do |service| %>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card ">
-      <div class="card-description">
-        <h2><%= service.city %></h2>
-        <p><%= service.description %></p>
-        <%= link_to "edit", edit_account_service_path(service), class: 'btn btn-success' %>
-        <%= link_to "remove", account_service_path(service), method: :delete, class: 'btn btn-success' %>
-      </div>
-    </div>
+  <% @services.each do |service| %>
+      <div class="col-xs-12 col-sm-3">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://unsplash.it/200/?random');">
+            <div class="card-last-description">
+              <h3><%= service.title %></h3>
+              <br>
+              <p><%= service.city %></p>
+              <p><%= service.price %></p>
+            </div>
+            <div class="card-last-description-link">
+              <%= link_to "edit", edit_account_service_path(service), class: 'btn btn-success' %>
+               <%= link_to "remove", account_service_path(service), method: :delete, class: 'btn btn-success' %>
+            </div>
+          </div>
 
-    </div>
+        </div>
     <% end %>
   </div>
   <div class="button-remove-service padded">
     <%= link_to "add a new service", new_account_service_path, class: 'btn btn-info'%>
   </div>
 </div>
+
+
+

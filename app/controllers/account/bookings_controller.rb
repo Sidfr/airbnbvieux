@@ -12,6 +12,10 @@ class Account::BookingsController < ApplicationController
 
   end
 
+  def show
+    @service = Service.find(params[:id])
+  end
+
   def new
     @booking = Booking.new
   end

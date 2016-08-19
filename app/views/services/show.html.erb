@@ -3,14 +3,14 @@
 <div class="container text-center">
   <div class="row">
    <div class="service-description-card-title">
-    <h2><%= @service.title %>TITLE OF THE SERVICE A RETIRER</h2>
+    <h2><%= @service.title %></h2>
    </div>
     <hr>
 
    <div class="service-description-card">
 
     <%= @service.description %>
-    <p><%= @service.price %> € </p>
+    <p><%= @service.price %> </p>
     </div>
     <h4> En savoir plus sur l'expert : </h4>
 
@@ -18,10 +18,9 @@
     <h5> Nom :<%= @service.user.profile.last_name %></h5>
 
     <div class="card-location-service-provider padded">
-   <p> Localisation :<%= @service.city %>
-    <%= @service.user.profile.address %></p>
+    <p><%= @service.user.profile.address %></p>
     <div class="card-geocoder-map">
-       <img src="http://placehold.it/500x300">
+       <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@service.user.profile.address}" %>
     </div>
     </div>
 
@@ -49,7 +48,7 @@
     <%= average.reduce(:+).to_f / sum %>
    <% end %>
    <div class="button-booking padded">
-   <%= link_to "Book this service", account_profile_path, class: "btn btn-primary" %>
+    <%= link_to "book it", account_bookings_path(service_id: @service.id), class: 'btn btn-success', method: :post %>
    </div>
   </div>
 </div>
