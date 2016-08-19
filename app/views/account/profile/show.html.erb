@@ -12,7 +12,7 @@
         <%=link_to "Edit my profile", edit_account_profile_path%></p>
       </div>
       <div class="product-body profil-right-side">
-      <% if @profile.expert && (@reviews.count != 0)%>
+        <% if @profile.expert && (@reviews.count != 0)%>
         <h3><%="The latest review from : #{@reviews.last.sender.profile.first_name}"%></h3>
         <p><%= "Comment : '#{@reviews.last.description}'" %></p>
         <p><%= "Note : #{@reviews.last.stars}/5" %></p>
@@ -33,7 +33,7 @@
               <div class="card-category">
                 <h4><%= service.title %></h4>
                 <p><%= service.description %></p>
-               <p> <%= service.city %></p>
+                <p> <%= service.city %></p>
               </div>
               <div class="card-description">
                 <%= link_to "Edit", edit_account_service_path(service), class: 'btn btn-warning' %>
@@ -47,6 +47,25 @@
       </div>
     </div>
     <% else %>
-    <p> You have no bookings </p>
+
+      <div class="container padded ">
+          <h3><%= "My bookings" %>
+        <div class="row">
+
+          <% @bookings.each do |booking| %>
+          <% if booking.validated_booking %>
+          <div class="col-xs-12 col-sm-3">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://unsplash.it/200/?random');">
+              <div class="card-category">
+                <h4><%= booking.service.description %></h4>>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
     <% end %>
   </div>
