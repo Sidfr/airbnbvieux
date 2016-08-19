@@ -8,7 +8,7 @@
 
 Review.destroy_all
 Booking.destroy_all
+Profile.destroy_all
 Availability.destroy_all
 Service.destroy_all
 User.destroy_all
-Profile.destroy_all

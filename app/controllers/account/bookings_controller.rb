@@ -2,6 +2,7 @@ class Account::BookingsController < ApplicationController
 
   before_action :set_services, except: [:index]
 
+
   def index
     @services = Service.search(params[:search])
     @hash = Gmaps4rails.build_markers(@services) do |service, marker|
@@ -51,6 +52,10 @@ class Account::BookingsController < ApplicationController
 
   def set_services
     @services = Service.all
+  end
+
+   def set_service
+    @service = Service.find(params[:id])
   end
 
   def set_bookings
