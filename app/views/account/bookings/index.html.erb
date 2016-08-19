@@ -1,53 +1,52 @@
-<section class="container">
-  <div class="left-half">
-    <div id="map" style="width: 100%; height: 600px;"></div>
+<div class="container text-center padded">
+  <div class="row">
 
-    <% content_for(:after_js) do %>
-    <%= javascript_tag do %>
-    $(document).on('ready', function() {
-    var handler = Gmaps.build('Google');
-    handler.buildMap({ internal: { id: 'map' } }, function() {
-    markers = handler.addMarkers(<%= raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    if (markers.length == 0) {
-    handler.getMap().setZoom(2);
-  } else if (markers.length == 1) {
-  handler.getMap().setZoom(14);
-}
+    <div class="col-xs-12 col-sm-6">
+      <div id="map" style="width: 100%; height: 700px;"></div>
+
+      <% content_for(:after_js) do %>
+      <%= javascript_tag do %>
+      $(document).on('ready', function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+      handler.getMap().setZoom(2);
+    } else if (markers.length == 1) {
+    handler.getMap().setZoom(14);
+  }
 });
 });
 <% end %>
 <% end %>
 </div>
-<div class="right-half">
-  <div class="container text-center padded">
-    <div class="row">
-      <% @services.each do |service| %>
-      <div class="col-xs-12 col-sm-3">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://unsplash.it/200/?random');">
-            <div class="card-last-description">
-              <h3><%= service.title %></h3>
-              <br>
-              <p><%= service.city %></p>
-              <p><%= service.price %></p>
-            </div>
-            <div class="card-last-description-link">
-            <% if current_user.profile.expert == false %>
-              <%= link_to "book it", account_bookings_path(service_id: service.id), class: 'btn btn-success', method: :post %>
-            <% end %>
-              <%= link_to "Voir", service_path(service), class: "btn btn-primary" %>
-            </div>
-          </div>
-
-        </div>
-    <% end %>
+<div class="col-xs-12 col-sm-6">
+  <% @services.each do |service| %>
+  <div class="col-xs-12 col-sm-6">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://unsplash.it/200/?random');">
+      <div class="card-last-description">
+        <h3><%= service.title %></h3>
+        <br>
+        <p><%= service.city %></p>
+        <p><%= service.price %></p>
+      </div>
+      <div class="card-last-description-link">
+        <% if current_user.profile.expert == false %>
+        <%= link_to "book it", account_bookings_path(service_id: service.id), class: 'btn btn-success', method: :post %>
+        <% end %>
+        <%= link_to "Voir", service_path(service), class: "btn btn-primary" %>
+      </div>
+    </div>
 
   </div>
+  <% end %>
 
 </div>
-</section>
 
+</div>
+</div>
 
 
 
