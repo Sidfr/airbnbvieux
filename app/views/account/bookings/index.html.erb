@@ -26,9 +26,9 @@
   <% @services.each do |service| %>
   <div class="col-xs-12 col-sm-6">
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://unsplash.it/200/?random');">
-      <div class="card-last-description">
-        <h3><%= service.title %></h3>
-        <br>
+      <div class="card-category">
+        <h4><%= service.title %></h4>
+
         <p><%= service.city %></p>
         <p><%= service.price %></p>
       </div>
