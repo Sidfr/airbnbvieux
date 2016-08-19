@@ -4,7 +4,6 @@ class Account::BookingsController < ApplicationController
 
   def index
     @services = Service.search(params[:search])
-
     @hash = Gmaps4rails.build_markers(@services) do |service, marker|
       marker.lat service.user.profile.latitude
       marker.lng service.user.profile.longitude
